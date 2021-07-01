@@ -18,6 +18,23 @@ export const createTournament = async(name, details) =>{
     : {message, type: 'error'}
 }
 
+export const deleteTournament =async (tournament_uuid)=>{
+    const response = await fetch(`${apiURL}/tournament/${tournament_uuid}`, {
+        method: 'DELETE',
+        headers: {
+            'ranked-token': localStorage.getItem('ranked-token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    })
+    const data = await response.json()
+    console.log(data)
+    if (response.ok) {
+        return {message: data.message, type: 'success'}
+    }
+    return {message: data.message, type: 'error'}
+}
+
 export const editTournament = async(tournament_uuid, name, details, status)=>{
     const response = await fetch(`${apiURL}/tournament/${tournament_uuid}`, {
         method: 'PUT',
