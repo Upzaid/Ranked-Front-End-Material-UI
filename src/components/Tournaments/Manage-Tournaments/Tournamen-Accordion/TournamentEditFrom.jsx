@@ -101,7 +101,7 @@ export default function TournamentEditForm ({tournament, deleteFunction}){
                 open={dialog}
                 onClose={()=> setDialog(false)}
             >
-                <DialogTitle>Do you wish to delete this tournament?</DialogTitle>
+                <DialogTitle>Are you sure you want delete this tournament?</DialogTitle>
                 <DialogActions>
                     <Button color='primary' onClick={()=>{deleteFunction(); setDialog(false)}}>
                         Delete
