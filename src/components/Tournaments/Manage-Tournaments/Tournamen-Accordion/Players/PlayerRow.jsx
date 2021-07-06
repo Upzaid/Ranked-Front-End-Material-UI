@@ -69,17 +69,18 @@ export default function PlayerRow({player, tournament_uuid, getPlayers}){
                             label="Name" 
                             defaultValue={name} 
                             onChange={(e)=>setNewName(e.target.value)}
+                            size="small"
                         />
                     </TableCell>
                     <TableCell colSpan={2}>
                         <ButtonGroup color="primary" >
-                            <Button onClick={()=> localPlayerEdit() }>Save</Button>
-                            <Button onClick={()=>{ setEdit(!edit); setName(name) }}>Exit</Button>
+                            <Button size="small" onClick={()=> localPlayerEdit() }>Save</Button>
+                            <Button size="small" onClick={()=>{ setEdit(!edit); setName(name) }}>Exit</Button>
                         </ButtonGroup>
                     </TableCell>
                 </>
                 }
-                <TableCell component="th" >
+                <TableCell  >
                     <Button size="small" className={classes.delete} variant="outlined" onClick={()=> setDialog(true)}>DROP / DELETE</Button>
                 </TableCell>
             </TableRow>
