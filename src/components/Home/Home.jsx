@@ -3,7 +3,6 @@ import SideMenu from './SideMenu'
 
 export default function Home() {
  
-
   return (
     <div >
         <SideMenu />

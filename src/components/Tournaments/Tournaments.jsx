@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Paper, Typography, Container, Tabs, Tab, AppBar } from '@material-ui/core'
-import NewTournamentForm from './NewTournamentFomr';
-import ManageTournaments from './ManageTournaments';
+import NewTournamentForm from './NewTournamentForm';
+import ManageTournaments from './Manage-Tournaments/ManageTournaments';
 
 export default function Tournaments (){
 
