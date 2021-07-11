@@ -5,6 +5,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import TournamentEditForm from './TournamentEditFrom'
 import Players from './Players/Players'
 import Matches from './Matches/Matches'
+import Invites from './Invites/Invites'
+import InviteList from './Invite-List/InviteList'
 
 
 
@@ -13,7 +15,7 @@ export default function TournamentAccordion({tournament, deleteFunction}){
     const [content, setContent] = useState(<TournamentEditForm tournament = {tournament} deleteFunction={()=>deleteFunction()}/>)
 
     return(
-        <Accordion key={tournament.tournament_uuid}>
+        <Accordion key={tournament.tournament_uuid} >
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon/>}
             >
@@ -36,7 +38,8 @@ export default function TournamentAccordion({tournament, deleteFunction}){
                     <Tab label='Edit Tournament' onClick={()=> setContent(<TournamentEditForm tournament={tournament} deleteFunction={deleteFunction}/>)}/>
                     <Tab label='Players'onClick={()=> setContent(<Players tournament_uuid={tournament.tournament_uuid} />)}/>
                     <Tab label='Matches'onClick={()=> setContent(<Matches tournament_uuid={tournament.tournament_uuid}/>)}/>
-                    <Tab label='Invite a Player'onClick={()=> setContent('Send Inivte')}/>
+                    <Tab label='Invites'onClick={()=> setContent(<InviteList  tournament_uuid={tournament.tournament_uuid}/>)}/>
+                    <Tab label='Invite a Player'onClick={()=> setContent(<Invites  tournament_uuid={tournament.tournament_uuid}/>)}/>
                 </Tabs>
             </AccordionDetails>
                 <Container >
