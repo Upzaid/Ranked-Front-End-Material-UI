@@ -51,3 +51,39 @@ export const cancelInvite = async(tournament_uuid, user_uuid)=>{
     ? {message, type: "success"}
     : {message, type: 'error'}
 }
+
+export const acceptInvite = async(tournament_uuid)=>{
+    const response  = await fetch(`${apiURL}/invite/accept`,{
+        method: 'PUT',
+        headers: {
+            'ranked-token': localStorage.getItem('ranked-token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({tournament_uuid})
+    })
+
+    const data = await response.json()
+    const {message} = data
+    return response.ok
+    ? {message, type: "success"}
+    : {message, type: 'error'}
+}
+
+export const declineInvite = async(tournament_uuid)=>{
+    const response  = await fetch(`${apiURL}/invite/decline`,{
+        method: 'PUT',
+        headers: {
+            'ranked-token': localStorage.getItem('ranked-token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({tournament_uuid})
+    })
+
+    const data = await response.json()
+    const {message} = data
+    return response.ok
+    ? {message, type: "success"}
+    : {message, type: 'error'}
+}
