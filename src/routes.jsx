@@ -3,6 +3,7 @@ import Landing from './components/Landing/Landing'
 import SignIn from './components/Sign-In/SignIn'
 import Register from './components/Register/Register'
 import Home from './components/Home/Home'
+import TournamentPage from './components/Tournament-Page/TournamentPage'
 import { createTheme, ThemeProvider } from '@material-ui/core'
 import { indigo } from '@material-ui/core/colors'
 
@@ -23,6 +24,7 @@ export default function Routes(){
                 <Route path='/Home' exact  component={Home}/>
                 <Route path='/sign-in' exact  component={SignIn}/>
                 <Route path='/register' exact  component={Register}/>
+                <Route path='/tournament/:tournament_uuid' exact  component={TournamentPage}/>
             </Router>
         </ThemeProvider>
     )
