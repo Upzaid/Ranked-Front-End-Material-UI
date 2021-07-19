@@ -66,5 +66,18 @@ export const declineRequest = async (tournament_uuid, user_uuid)=>{
 }
 
 export const cancelRequest = async (tournament_uuid)=>{
+    const response  = await fetch(`${apiURL}/request/${tournament_uuid}`,{
+        method: 'DELETE',
+        headers: {
+            'ranked-token': localStorage.getItem('ranked-token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        }
+    })
 
+    const data = await response.json()
+    const {message} = data
+    return response.ok
+    ? {message, type: 'success'}
+    : {message, type: 'error'}
 }

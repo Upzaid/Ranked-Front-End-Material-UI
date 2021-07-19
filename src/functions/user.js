@@ -66,6 +66,22 @@ export const getUserTournaments = async()=>{
     : data
 }
 
+export const getUserTournamentMatches = async(tournament_uuid)=>{
+    const response  = await fetch(`${apiURL}/user/matches/${tournament_uuid}`,{
+        headers: {
+            'ranked-token': localStorage.getItem('ranked-token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    })
+
+    const data = await response.json()
+    
+    return data.message
+    ? {message: data.message}
+    : data
+}
+
 export const getUserInvites = async() =>{
     const response  = await fetch(`${apiURL}/user/invites`,{
         headers: {
@@ -81,3 +97,19 @@ export const getUserInvites = async() =>{
     ? {message: data.message}
     : data
 }
+
+export const getUserRequests = async ()=>{
+    const response  = await fetch(`${apiURL}/user/requests`,{
+        headers: {
+            'ranked-token': localStorage.getItem('ranked-token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    })
+
+    const data = await response.json()
+
+    return data.message
+    ? {message: data.message}
+    : data
+}  

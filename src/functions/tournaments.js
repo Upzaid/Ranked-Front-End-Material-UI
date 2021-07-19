@@ -65,3 +65,16 @@ export const getTournamentList = async () =>{
     const data = await response.json()
     return ({message: data.message})
 }
+
+export const getTournamentInfo = async (tournament_uuid)=>{
+    const response = await fetch(`${apiURL}/tournament/info/${tournament_uuid}`, {
+        headers: {
+            'ranked-token': localStorage.getItem('ranked-token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    })
+    if (response.ok) return await response.json()
+    const data = await response.json()
+    return ({message: data.message})
+}
