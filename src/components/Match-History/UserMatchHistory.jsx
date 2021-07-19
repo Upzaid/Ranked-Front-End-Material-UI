@@ -18,24 +18,24 @@ export default function UserMatchHistory (){
 
     return(
         <>
-        <Typography color="textSecondary" variant='h3' style={{textAlign: 'center'}}>My Match History</Typography>
-        <br />
-        <Paper style={{paddingBottom: 40, minHeight: '80vh'}}>
-        {!tournaments
-        ? <Box style={{textAlign: 'center'}}><CircularProgress /></Box>
-        : <Container style={{justifyContent: 'center'}}>
+            <Typography color="textSecondary" variant='h3' style={{textAlign: 'center'}}>My Match History</Typography>
             <br />
-            {tournaments.length > 0
-            ? tournaments.map(tournament=>{
-                return(
-                    <UserTournamentAccordion tournament={tournament}/>
-                )
-            })
-            : <Typography>You have not joined any tournaments.</Typography>
+            <Paper style={{paddingBottom: 40, minHeight: '80vh'}}>
+            {!tournaments
+            ? <Box style={{textAlign: 'center'}}><CircularProgress /></Box>
+            : <Container style={{justifyContent: 'center'}}>
+                <br />
+                {tournaments.length > 0
+                ? tournaments.map(tournament=>{
+                    return(
+                        <UserTournamentAccordion tournament={tournament}/>
+                    )
+                })
+                : <Typography>You have not joined any tournaments.</Typography>
+                }
+            </Container>
             }
-        </Container>
-        }
-        </Paper>
+            </Paper>
         </>
     )
 }
