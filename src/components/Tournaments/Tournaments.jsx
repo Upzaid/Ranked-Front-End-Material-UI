@@ -27,7 +27,7 @@ export default function Tournaments (){
                         <Tab label='Create a New Tournament' onClick={()=>setContent(<NewTournamentForm />)}/>
                     </Tabs>
                 </AppBar>
-                <Container>
+                <Container style={{paddingBottom: 40}}>
                     <br />
                     {content}
                 </Container>
