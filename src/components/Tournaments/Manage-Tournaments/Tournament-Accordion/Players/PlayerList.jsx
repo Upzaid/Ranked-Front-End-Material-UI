@@ -1,9 +1,17 @@
 import React from 'react'
 import PlayerRow from './PlayerRow'
-import { Typography, Container, Paper} from '@material-ui/core'
+import { Typography, Container, Paper, makeStyles} from '@material-ui/core'
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core'
 
-export default function PlayerList({players, tournament_uuid, getPlayers}){
+const useStyles = makeStyles(() =>({
+    pointer:{
+        cursor: 'pointer'
+    }
+}))
+
+export default function PlayerList({players, tournament_uuid, getPlayers, sortRating, sortColumn}){
+
+    const classes = useStyles()
 
     return(
        <Container>
@@ -15,9 +23,9 @@ export default function PlayerList({players, tournament_uuid, getPlayers}){
                         <TableHead>
                             <TableRow>
                                 <TableCell />
-                                <TableCell>Name </TableCell>
-                                <TableCell>Rating</TableCell>
-                                <TableCell>Type</TableCell>
+                                <TableCell className={classes.pointer} onClick={()=> sortColumn('name')}>Name </TableCell>
+                                <TableCell className={classes.pointer} onClick={()=> sortRating()} >Rating</TableCell>
+                                <TableCell className={classes.pointer} onClick={()=> sortColumn('player_type')}>Type</TableCell>
                                 <TableCell />
                                 <TableCell />
                             </TableRow>
