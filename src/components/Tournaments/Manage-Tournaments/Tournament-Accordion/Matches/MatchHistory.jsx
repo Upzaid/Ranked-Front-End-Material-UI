@@ -1,10 +1,18 @@
 import React from 'react'
-import { Typography, Container} from '@material-ui/core'
+import { Typography, Container, makeStyles} from '@material-ui/core'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core'
 import MatchRow from './MatchRow'
 
-export default function MatchHistory ({tournament_uuid, matches, getMatches}){
+const useStyles = makeStyles(() =>({
+    pointer:{
+        cursor: 'pointer'
+    }
+}))
+
+export default function MatchHistory ({tournament_uuid, matches, getMatches, sortColumns}){
     
+    const classes = useStyles()
+
     return(
         <Container>
             <Typography variant="h6">Match History</Typography>
@@ -14,21 +22,22 @@ export default function MatchHistory ({tournament_uuid, matches, getMatches}){
                 <Table size="small">
                     <TableHead>
                         <TableRow>
-                            <TableCell align='center'>Date</TableCell>
-                            <TableCell align='center'>Player 1</TableCell>
+                            <TableCell className={classes.pointer} onClick={()=> sortColumns('date')} align='center'>Date</TableCell>
+                            <TableCell className={classes.pointer} onClick={()=> sortColumns('p1_name')} align='center'>Player 1</TableCell>
                             <TableCell align='center'>Result</TableCell>
-                            <TableCell align='center'>Player 2</TableCell>
+                            <TableCell className={classes.pointer} onClick={()=> sortColumns('p2_name')}align='center'>Player 2</TableCell>
                             <TableCell align='center'></TableCell>
                             <TableCell align='center'></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {matches.map(match=><MatchRow 
-                                                key={match.match_uuid} 
-                                                match={match} 
-                                                tournament_uuid={tournament_uuid}
-                                                getMatches={getMatches}
-                                            />
+                        {matches.map(match=>
+                            <MatchRow 
+                                key={match.match_uuid} 
+                                match={match} 
+                                tournament_uuid={tournament_uuid}
+                                getMatches={getMatches}
+                            />
                         )}   
                     </TableBody>
                 </Table>

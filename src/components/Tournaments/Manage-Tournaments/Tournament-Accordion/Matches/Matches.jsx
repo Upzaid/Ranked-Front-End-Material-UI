@@ -14,6 +14,12 @@ export default function Matches({tournament_uuid}){
 
     const [players, setPlayers] = useState([])
     const [matches, setMatches] = useState([])
+    const [sortOrder, setSortOrder] = useState({
+        date: false,
+        p1_name: false,
+        p2_name: false
+    })
+
 
     const fetchPlayers = async () => {
         const response = await getPlayers(tournament_uuid)
@@ -23,6 +29,18 @@ export default function Matches({tournament_uuid}){
     const fetchMatches = async() =>{
         const response = await getMatches(tournament_uuid)
         if (!response.message) setMatches(response)
+    }
+
+    const sortColumns = (sortKey) =>{
+        const sortedMatches = [...matches]
+        sortedMatches.sort((a, b) =>{
+            if (a[sortKey] > b[sortKey]) return sortOrder[sortKey] ? 1 : -1
+            if (a[sortKey] < b[sortKey]) return sortOrder[sortKey] ? -1 : 1
+            return 0
+        })
+        sortOrder[sortKey] = !sortOrder[sortKey]
+        setSortOrder(sortOrder)
+        setMatches(sortedMatches)
     }
 
     return(
@@ -38,7 +56,9 @@ export default function Matches({tournament_uuid}){
             ? <MatchHistory 
                 tournament_uuid={tournament_uuid} 
                 matches={matches} 
-                getMatches={fetchMatches}/>
+                getMatches={fetchMatches}
+                sortColumns={sortColumns}
+                />
             : <CircularProgress></CircularProgress>
             }
         </Box>
