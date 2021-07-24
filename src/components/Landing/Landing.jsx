@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,11 +9,13 @@ import ScreenShot1 from '../../assets/ScreenShot1.png'
 import ScreenShot2 from '../../assets/ScreenShot2.png'
 import ScreenShot3 from '../../assets/ScreenShot3.png'
 
+const apiURL = process.env.REACT_APP_API_URL
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="">
         Your Website
       </Link>{' '}
       {new Date().getFullYear()}
@@ -60,6 +62,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Landing() {
   const classes = useStyles();
+
+  useEffect(()=>{
+    signIn()
+  },[])
+
+  const signIn = async ()=>{
+    const response = await fetch(`${apiURL}/user/jwt`, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'ranked-token': localStorage.getItem('ranked-token')
+      }
+    })
+    if(response.ok) window.location.replace('/home')
+  }
 
   return (
     <React.Fragment>

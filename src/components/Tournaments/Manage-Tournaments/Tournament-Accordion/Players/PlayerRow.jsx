@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Typography, Collapse, IconButton, TextField, Button, ButtonGroup, makeStyles } from '@material-ui/core'
-import { Dialog, DialogActions, DialogTitle } from '@material-ui/core'
+import { Dialog, DialogActions, DialogContent } from '@material-ui/core'
 import { TableRow, TableCell,  } from '@material-ui/core'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
@@ -54,11 +54,11 @@ export default function PlayerRow({player, tournament_uuid, getPlayers}){
                 {!edit 
                 ?<>
                     <TableCell component="th" >{name}</TableCell>
-                    <TableCell component="th" >{player.matches[player.matches.length - 1].player_rating}</TableCell>
+                    <TableCell component="th" >{player.matches.length > 0 ? player.matches[player.matches.length - 1].player_rating : 1200}</TableCell>
                     <TableCell component="th" >{player.player_type}</TableCell>
                     <TableCell component="th" >
                         {player.player_type === 'Local'
-                        ?<Button size="small" color="primary" variant="outlined" onClick={()=> setEdit(!edit)}>Edit</Button>
+                        ?<Button size="small" color="primary"  onClick={()=> setEdit(!edit)}>Edit</Button>
                         : null
                         }
                     </TableCell>
@@ -81,7 +81,7 @@ export default function PlayerRow({player, tournament_uuid, getPlayers}){
                 </>
                 }
                 <TableCell  >
-                    <Button size="small" className={classes.delete} variant="outlined" onClick={()=> setDialog(true)}>DROP / DELETE</Button>
+                    <Button size="small" className={classes.delete}  onClick={()=> setDialog(true)}>DROP / DELETE</Button>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -99,7 +99,7 @@ export default function PlayerRow({player, tournament_uuid, getPlayers}){
                 open={dialog}
                 onClose={()=> setDialog(false)}
             >
-                <DialogTitle>Are you sure you want { player.type==="Local" ? 'delete' : 'remove'} {player.name}?</DialogTitle>
+                <DialogContent>Are you sure you want { player.player_type==="Local" ? 'delete' : 'remove'} {player.name}?</DialogContent>
                 <DialogActions>
                     <Button color='primary' onClick={()=> deleteLocalPlayer()}>
                         Delete

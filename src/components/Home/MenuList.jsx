@@ -18,12 +18,12 @@ export default function MenuList(props){
                     </ListItemIcon>
                     <ListItemText primary='Tournaments' />
                 </ListItem>
-                <ListItem button onClick={()=> props.invitesFunction() }>
+                {/* <ListItem button onClick={()=> props.invitesFunction() }>
                     <ListItemIcon>
                         <SvgIcon component={Invite} viewBox='0 0 682 682'/>
                     </ListItemIcon>
                     <ListItemText primary='Invites' />
-                </ListItem>
+                </ListItem> */}
             </List>
             <Divider />
             <List>
@@ -37,13 +37,13 @@ export default function MenuList(props){
                     <ListItemIcon>
                         <SvgIcon component={MatchHistory} viewBox='0 0 512 512'/>
                     </ListItemIcon>
-                    <ListItemText primary='Invites' />
+                    <ListItemText primary='Match History'/>
                 </ListItem>
                 <ListItem button onClick={()=> props.requestsFunction()}>
                 <ListItemIcon>
                     <MailIcon />
                 </ListItemIcon>
-                    <ListItemText primary='Join Requests'/>
+                    <ListItemText primary='Invites & Requests'/>
                 </ListItem>
             </List>
             <Divider />

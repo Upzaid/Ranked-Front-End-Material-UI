@@ -4,14 +4,14 @@ import { createPlayer } from '../../../../../functions/players'
 import MuiAlert from '@material-ui/lab/Alert';
 
 
-export default function LocalPlayerForm({getPlayers, tournament}){
+export default function LocalPlayerForm({getPlayers, tournament_uuid}){
     const [name, setName] = useState()
     const [message, setMessage] = useState()
     const [severity, setSeverity] = useState()
     
     const submit = async (e)=>{
         e.preventDefault()
-        const response = await createPlayer(name, tournament)
+        const response = await createPlayer(name, tournament_uuid)
         setSeverity(response.type)
         setMessage(response.message)
         if (response.type==="success"){

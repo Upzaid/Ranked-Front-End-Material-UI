@@ -1,6 +1,6 @@
 import React , { useEffect, useState } from 'react'
 import { Box, CircularProgress } from '@material-ui/core'
-import TournamentAccordion from './Tournamen-Accordion/TournamentAccordion';
+import TournamentAccordion from './Tournament-Accordion/TournamentAccordion';
 import { getTournamentList } from '../../../functions/tournaments'
 import { deleteTournament } from '../../../functions/tournaments';
 
@@ -10,8 +10,7 @@ export default function ManageTournaments(){
     const [loading, setLoading] = useState(true)
     
     useEffect(()=>{
-        getTournamentList()
-            .then(data => {setTournaments(data); setLoading(false)})
+        fetchTournaments()
     }, [])
 
     // This delete function will be sent from
@@ -24,13 +23,23 @@ export default function ManageTournaments(){
         }
     }
 
+    const fetchTournaments = async ()=>{
+        const response = await getTournamentList()
+        setTournaments(response)
+        setLoading(false)
+    }
+
     return(
         <>
             { loading
             ? <Box style={{textAlign: 'center'}}><CircularProgress/></Box>
             : tournaments.map(tournament =>{
                 return(
-                    <TournamentAccordion tournament={tournament} deleteFunction={()=>tournamentDelete(tournament.tournament_uuid)} />
+                    <TournamentAccordion
+                        key={tournament.tournament_uuid}
+                        tournament={tournament} 
+                        deleteFunction={()=>tournamentDelete(tournament.tournament_uuid)}
+                    />
                 )
             })
             }

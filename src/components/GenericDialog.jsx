@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, DialogTitle, DialogActions, Button } from '@material-ui/core'
+import { Dialog, DialogContent, DialogActions, Button } from '@material-ui/core'
 
 export default function GenericDialog({handleClose, open, onConfirm, onCancel, message, confirmLabel }){
     return(
@@ -7,7 +7,7 @@ export default function GenericDialog({handleClose, open, onConfirm, onCancel, m
             open={open}
             onClose={()=> handleClose()}
         >
-            <DialogTitle>{message}</DialogTitle>
+            <DialogContent>{message}</DialogContent>
             <DialogActions>
                 <Button color='primary' onClick={()=> onConfirm()}>
                     {confirmLabel}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dialog, DialogTitle, DialogActions, Button } from '@material-ui/core'
+import { Dialog, DialogContent, DialogActions, Button } from '@material-ui/core'
 import { deleteMatch } from '../../../../../functions/matches'
 import SnackBar from '../../../../SnackBar'
 
@@ -23,9 +23,9 @@ export default function DeleteMatchDialog({match_uuid, open, handleClose, tourna
             open={open}
             onClose={()=>handleClose()}
         >
-            <DialogTitle>
+            <DialogContent>
                 Are you sure you want to delete this match?
-            </DialogTitle>
+            </DialogContent>
             <DialogActions>
                 <Button 
                     color='primary'

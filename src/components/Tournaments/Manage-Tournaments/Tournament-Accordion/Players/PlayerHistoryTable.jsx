@@ -7,9 +7,9 @@ export default function PlayerHistoryTable({matches}) {
 
     return(
         <Box >
-            <Typography variant="subtitle1">Match History</Typography>
+            <Typography variant="subtitle1" style={{textAlign: 'center'}}>Match History</Typography>
             <br />
-            <Grid container  justify='center'>
+            <Grid container justify='center'>
                 <Box style={{width: 850, height: 400}}>
                     <EloProgressionGraph 
                         matches={matches}

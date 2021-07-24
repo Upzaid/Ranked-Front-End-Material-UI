@@ -1,32 +1,32 @@
 import React, { useState } from 'react'
 import { Container } from '@material-ui/core'
 import SearchUserForm from './SearchUserForm'
-import SearchResults from './SearchResult'
+import SearchResults from './SearchResults'
 import { Typography } from '@material-ui/core'
+import { searchUser } from '../../../../../functions/user'
 
 
-export default function Invite(){
+export default function Invites({tournament_uuid}){
 
-    const [results, setResults] = useState([1, 2, 3, 4, 5, 6 ,7 ])
+    const [results, setResults] = useState()
 
-
-    const searchUsers = () =>{
-        alert('hola')
+    const findUser = async (username) =>{
+        const response = await searchUser(username)
+        if (!response.message) setResults(response)
     }
 
     return(
         <Container>
             <SearchUserForm 
-                search={searchUsers}
+                search={findUser}
             />
             {!results
-            ? <Typography>User search</Typography>
+            ? <Typography></Typography>
             : <SearchResults 
                 results={results}
+                tournament_uuid={tournament_uuid}
             />
             }
-
-            
         </Container>
     )
 }

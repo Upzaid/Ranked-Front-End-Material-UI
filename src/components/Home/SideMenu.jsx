@@ -6,6 +6,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { CssBaseline, Typography, Divider, AppBar, Drawer, Toolbar, IconButton } from '@material-ui/core'
 import MenuList from './MenuList'
 import Tournaments from '../Tournaments/Tournaments'
+import Profile from '../Profile/Profile';
+import UserMatchHistory from '../Match-History/UserMatchHistory';
+import RequestsInvites from '../Requests-Invites/RequestsInvites';
 
 const drawerWidth = 240;
 
@@ -78,8 +81,6 @@ export default function SideMenu() {
 
   // Content functions
 
-
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -128,10 +129,9 @@ export default function SideMenu() {
         <Divider />
         <MenuList
           tournamentsFunction = {()=> setContent(<Tournaments/>)}
-          profileFunction = {()=> setContent('Profile')}
-          requestsFunction = {()=> setContent('Requests')}
-          invitesFunction = {()=> setContent('Invites')}
-          matchHistoryFunction = {()=> setContent('Match History')}
+          profileFunction = {()=> setContent(<Profile />)}
+          requestsFunction = {()=> setContent(<RequestsInvites/>)}
+          matchHistoryFunction = {()=> setContent(<UserMatchHistory/>)}
         />
       </Drawer>
       <main className={classes.content}>

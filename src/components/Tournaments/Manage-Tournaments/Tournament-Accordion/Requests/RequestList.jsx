@@ -15,7 +15,6 @@ export default function Requests({tournament_uuid}){
     const fetchRequests = async()=>{
         const response = await getTournamentRequests(tournament_uuid)
         if (!response.message) setRequests(response)
-        console.log(response)
     }
 
     return(
@@ -40,7 +39,7 @@ export default function Requests({tournament_uuid}){
                 })
             }
             </Table>
-            : <Typography>This tournament has no pending invites.</Typography>
+            : <Typography>This tournament has no pending requests.</Typography>
         : <Container style={{textAlign: 'center'}}><CircularProgress /></Container>
         }
     </Box>

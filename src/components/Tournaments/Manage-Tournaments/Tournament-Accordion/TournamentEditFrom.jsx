@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import ReactQuill from 'react-quill'
-import { Button, TextField, Snackbar, Select, MenuItem, Typography, makeStyles } from '@material-ui/core'
-import { Dialog, DialogTitle, DialogActions } from '@material-ui/core'
+import { Button, TextField, Snackbar, Select, MenuItem, Typography, makeStyles, Link } from '@material-ui/core'
+import { Dialog, DialogTitle, DialogActions, Grid } from '@material-ui/core'
 import MuiAlert from '@material-ui/lab/Alert';
 import { editTournament } from '../../../../functions/tournaments';
 
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme=>({
     }
 }))
 
-export default function TournamentEditForm ({tournament, deleteFunction}){
+export default function TournamentEditForm ({tournament, fetchTournaments, deleteFunction}){
     const classes = useStyles()
     const quillRef = useRef()
     const [name, setName] = useState(tournament.tournament_name)
@@ -50,14 +50,27 @@ export default function TournamentEditForm ({tournament, deleteFunction}){
                  style={{margin:'20px 0'}}
             >
             </TextField>
-                <Typography variant='subtitle1'>Status:</Typography>
-                <Select
-                    value={status}
-                    onChange={(e)=> setStatus(e.target.value)}
-                >
-                    <MenuItem value='Active'>Active</MenuItem>
-                    <MenuItem value='Concluded'>Concluded</MenuItem>
-                </Select>
+            <Typography variant='subtitle1'>Status:</Typography>
+            <Grid container spacing={2} alignItems="flex-end">
+                <Grid item >
+                    <Select
+                        value={status}
+                        onChange={(e)=> setStatus(e.target.value)}
+                    >
+                        <MenuItem value='Active'>Active</MenuItem>
+                        <MenuItem value='Concluded'>Concluded</MenuItem>
+                    </Select>
+                </Grid>
+                <Grid item>
+                    <Link 
+                        href={`/tournament/${tournament.tournament_uuid}`} 
+                        target='_blank'
+                        variant="subtitle1"
+                    >
+                        Public Link
+                    </Link>
+                </Grid>
+            </Grid>
             <br />
             <br />
             <ReactQuill

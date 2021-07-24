@@ -99,7 +99,6 @@ export default function MatchRow({match, tournament_uuid, getMatches}){
                     <Button 
                         size="small" 
                         color="primary" 
-                        variant="outlined"
                         onClick={()=>setEdit(true)}
                     >
                         Edit
@@ -109,7 +108,6 @@ export default function MatchRow({match, tournament_uuid, getMatches}){
                     <Button 
                         size="small" 
                         className={classes.delete} 
-                        variant="outlined" 
                         onClick={()=> setDialog(true)}>
                             DELETE
                     </Button>
