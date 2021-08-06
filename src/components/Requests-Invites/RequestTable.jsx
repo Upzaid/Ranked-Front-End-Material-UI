@@ -67,7 +67,7 @@ function RequestRow({request, getRequests}) {
 export default function RequestTable({requests, getRequests}) {
     return(
         requests.length === 0
-        ? <Typography>You have no pending invites.</Typography>
+        ? <Typography>You have no pending requests.</Typography>
         : <Table>
             <TableBody>
                 {requests.map(request=>{
