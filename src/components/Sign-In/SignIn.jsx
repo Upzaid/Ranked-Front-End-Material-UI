@@ -38,7 +38,7 @@ export default function SignIn() {
   const submit = async(e) =>{
     e.preventDefault()
     const response = await signIn(email, password)
-    console.log(response)
+    
     if (response.error) {
       setMessage(response.error)
       return

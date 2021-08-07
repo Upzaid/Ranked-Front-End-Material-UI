@@ -18,9 +18,9 @@ export const register = async (first_name, last_name, username, email, password)
             }
         })
         if (response.ok) return await response.json()
-        return {error: await response.json()}
+        return {error: await response.text() || await response.json()}
     } catch (error) {
-        alert(error)
+        console.log(error)
     }
 }
 
@@ -38,8 +38,8 @@ export const signIn = async (email, password) =>{
             }
         })
         if (response.ok) return await response.json()
-        
-        return {error: await response.json()}
+    
+        return {error: await response.text() || await response.json()}
     } catch (error) {
         console.error(error)
     }
