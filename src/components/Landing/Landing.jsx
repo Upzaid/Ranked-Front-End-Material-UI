@@ -144,7 +144,7 @@ export default function Landing() {
           <DescriptionCardLeft
             title="Tournament Management"
             image={ScreenShot1}
-            text="Create and manage multiple tournaments, add details and invite players."
+            text="Create and manage multiple tournaments, add details and invite players, or simply join other tournaments."
           />
           <br />
           <DescriptionCardRight
