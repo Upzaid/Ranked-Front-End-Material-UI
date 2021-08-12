@@ -1,4 +1,4 @@
-const apiURL = process.env.REACT_APP_API_URL
+import apiURL from '../variables'
 
 export const createTournament = async(name, details) =>{
     const response = await fetch(`${apiURL}/tournament/create`, {

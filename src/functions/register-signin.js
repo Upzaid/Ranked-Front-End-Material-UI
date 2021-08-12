@@ -1,4 +1,4 @@
-const apiURL = process.env.REACT_APP_API_URL
+import apiURL from '../variables'
 
 export const register = async (first_name, last_name, username, email, password) =>{
     

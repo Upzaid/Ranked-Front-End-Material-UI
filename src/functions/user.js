@@ -1,4 +1,4 @@
-const apiURL = process.env.REACT_APP_API_URL
+import apiURL from '../variables'
 
 export const getUserData = async ()=>{
     const response  = await fetch(`${apiURL}/user/data`,{

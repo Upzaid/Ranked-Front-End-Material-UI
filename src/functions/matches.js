@@ -1,4 +1,4 @@
-const apiURL = process.env.REACT_APP_API_URL
+import apiURL from '../variables'
 
 export const createMatch = async(tournament_uuid, p1_uuid, p2_uuid, p1_wins, p2_wins, date)=>{
     const response = await fetch(`${apiURL}/match/submit/${tournament_uuid}`,{

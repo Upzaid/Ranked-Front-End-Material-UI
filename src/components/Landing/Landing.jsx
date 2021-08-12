@@ -9,8 +9,10 @@ import { Card, CardContent } from '@material-ui/core';
 import ScreenShot1 from '../../assets/ScreenShot1.png'
 import ScreenShot2 from '../../assets/ScreenShot2.png'
 // import ScreenShot3 from '../../assets/ScreenShot3.png'
+import apiURL from '../../variables'
 
-const apiURL = process.env.REACT_APP_API_URL
+
+// const apiURL = process.env.REACT_APP_API_URL
 
 function DescriptionCardLeft({title, text, image}){
   return(
@@ -115,7 +117,7 @@ export default function Landing() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              RANKED.gg
+              RANKD.gg
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               A free tool designed to create and manage league tournaments based on the Elo Rating System.

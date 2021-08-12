@@ -10,7 +10,7 @@ export default function RequestsInvites (){
 
     return(
         <Box>
-            <Typography color="textSecondary" variant='h3' style={{textAlign: 'center'}}>Requests & Invites</Typography>
+            <Typography color="textSecondary" variant='h3' style={{textAlign: 'center'}}>Inivtes & Requests</Typography>
             <br />
             <Paper style={{minHeight: '80vh'}}>
                 <AppBar position='static'>
