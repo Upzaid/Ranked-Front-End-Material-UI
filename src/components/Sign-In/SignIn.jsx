@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container,  Dialog, DialogContentText, DialogContent } from '@material-ui/core';
 import { signIn } from '../../functions/register-signin';
+import MetaTags from '../Meta-Tags/MetaTags';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -49,6 +50,10 @@ export default function SignIn() {
 
   return (
     <Container component="main" maxWidth="xs">
+      <MetaTags 
+            title="Sign In"
+            descirption="Sign in into your RANKD.gg account."
+      />
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">

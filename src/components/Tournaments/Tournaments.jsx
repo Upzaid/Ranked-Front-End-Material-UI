@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Paper, Typography, Container, Tabs, Tab, AppBar } from '@material-ui/core'
 import NewTournamentForm from './NewTournamentForm';
 import ManageTournaments from './Manage-Tournaments/ManageTournaments';
+import MetaTags from '../Meta-Tags/MetaTags';
 
 export default function Tournaments (){
 
@@ -13,6 +14,9 @@ export default function Tournaments (){
 
     return(
         <>
+            <MetaTags 
+                title="RANKD.gg | Tournaments"
+            />
             <Typography variant="h3" color="textSecondary" style={{textAlign:'center'}}>Tournaments</Typography>
             <br />
             <Paper style={{minHeight: "80vh"}}>

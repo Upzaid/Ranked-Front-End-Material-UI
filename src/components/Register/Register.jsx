@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Dialog, DialogContentText, DialogContent } from '@material-ui/core';
 import { register } from '../../functions/register-signin'
+import MetaTags from '../Meta-Tags/MetaTags';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -52,6 +53,10 @@ export default function Register() {
 
   return (
     <Container component="main" maxWidth="xs">
+      <MetaTags 
+            title="Register"
+            descirption="Create a new RANKD.gg account so you can start organizing tournaments."
+      />
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">

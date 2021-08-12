@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Paper, Typography, Container, CircularProgress, Box } from '@material-ui/core'
 import UserTournamentAccordion from './UserTournamentAccordion'
 import { getUserTournaments } from '../../functions/user'
+import MetaTags from '../Meta-Tags/MetaTags'
 
 export default function UserMatchHistory (){
     
@@ -18,6 +19,9 @@ export default function UserMatchHistory (){
 
     return(
         <>
+             <MetaTags 
+                title="RANKD.gg | Match History"
+            />
             <Typography color="textSecondary" variant='h3' style={{textAlign: 'center'}}>My Match History</Typography>
             <br />
             <Paper style={{paddingBottom: 40, minHeight: '80vh'}}>

@@ -4,6 +4,7 @@ import ProfileField from './ProfileField'
 import GenericDialog from '../GenericDialog'
 import SnackBar from '../SnackBar'
 import { getUserData, editUser } from '../../functions/user'
+import MetaTags from '../Meta-Tags/MetaTags'
 
 const useStyles = makeStyles(theme=>({
     root: {
@@ -60,6 +61,9 @@ export default function Profile(){
     
     return(
         <>
+            <MetaTags 
+                title="RANKD.gg | Profile"
+            />
             <Typography variant="h3" color="textSecondary" style={{textAlign:'center'}}>My Profile</Typography>
             <br />
             <Paper style={{minHeight: '80vh'}}>

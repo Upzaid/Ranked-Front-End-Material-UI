@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Paper, Typography, Box, Tab, Tabs, AppBar, Container } from '@material-ui/core'
 import Invites from './Invites'
 import Requests from './Requests'
+import MetaTags from '../Meta-Tags/MetaTags'
 
 export default function RequestsInvites (){
     
@@ -10,6 +11,9 @@ export default function RequestsInvites (){
 
     return(
         <Box>
+             <MetaTags 
+                title="RANKD.gg | Invites & Requests"
+            />
             <Typography color="textSecondary" variant='h3' style={{textAlign: 'center'}}>Inivtes & Requests</Typography>
             <br />
             <Paper style={{minHeight: '80vh'}}>

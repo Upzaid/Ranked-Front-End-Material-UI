@@ -5,6 +5,7 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.bubble.css';
 import { sendRequest } from '../../functions/request'
 import SnackBar from '../SnackBar'
+import MetaTags from '../Meta-Tags/MetaTags';
 
 
 export default function TournamentInfo({tournament}){
@@ -22,6 +23,9 @@ export default function TournamentInfo({tournament}){
 
     return(
         <Box >
+             <MetaTags 
+                title={tournament.tournament_name}
+            />
             <CssBaseline/>
             <AppBar position='sticky'>
                 <Toolbar  />

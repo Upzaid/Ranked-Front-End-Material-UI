@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Link, Container, Grid, Toolbar } from '@material-ui/core';
 import { Card, CardContent } from '@material-ui/core';
+import MetaTags from '../Meta-Tags/MetaTags';
 import ScreenShot1 from '../../assets/ScreenShot1.png'
 import ScreenShot2 from '../../assets/ScreenShot2.png'
 // import ScreenShot3 from '../../assets/ScreenShot3.png'
@@ -88,6 +89,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Landing() {
   const classes = useStyles();
+  const description = `A free tool designed to create and manage league tournaments based on the Elo Rating System.
+  Tournament Management, Match History. Create and manage multiple tournaments, invite players, or join tournaments.`
 
   useEffect(()=>{
     signIn()
@@ -107,6 +110,10 @@ export default function Landing() {
 
   return (
     <React.Fragment>
+      <MetaTags 
+        title='RANKD.gg'
+        descirption={description}
+      />
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
